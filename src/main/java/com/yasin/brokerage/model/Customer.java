@@ -1,5 +1,6 @@
 package com.yasin.brokerage.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,6 +8,7 @@ import java.util.Set;
 
 
 @Entity
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Table(name = "customers")
 @Getter
 @Setter
@@ -23,6 +25,7 @@ public class Customer {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(nullable = false)

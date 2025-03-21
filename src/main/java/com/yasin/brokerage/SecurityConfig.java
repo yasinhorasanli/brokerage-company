@@ -28,19 +28,24 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
+                        // Public endpoints
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
+                        // Customer management
                         .requestMatchers("/customers/create").hasRole("ADMIN")
                         .requestMatchers("/customers/**").authenticated()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/orders/{orderId}").authenticated()
+                        // Order management
+                        .requestMatchers(HttpMethod.DELETE, "/orders/delete").authenticated()
+                        .requestMatchers("/orders/match").hasRole("ADMIN")
                         .requestMatchers("/orders/**").authenticated()
+                        // Asset management
                         .requestMatchers("/assets/add").hasRole("ADMIN")
                         .requestMatchers("/assets/**").authenticated()
+                        // Default
                         .anyRequest().permitAll()
                 )
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // JWT
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class); // JWT filter before standard auth filter
 
         http.headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)); // To allow H2 console
 

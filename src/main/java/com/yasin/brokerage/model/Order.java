@@ -7,6 +7,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Table(name = "orders")
 @Getter
 @Setter
