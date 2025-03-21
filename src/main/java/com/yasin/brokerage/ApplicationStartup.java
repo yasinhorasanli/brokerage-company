@@ -4,7 +4,6 @@ import com.yasin.brokerage.model.Customer;
 import com.yasin.brokerage.service.AssetService;
 import com.yasin.brokerage.service.CustomerService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,7 +18,7 @@ public class ApplicationStartup implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         Customer yasin = customerService.createCustomer("yasin", "1234", "CUSTOMER");
         Customer alice = customerService.createCustomer("alice", "pass123", "CUSTOMER");
         Customer admin = customerService.createCustomer("admin", "adminpass", "ADMIN");

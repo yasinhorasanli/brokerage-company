@@ -35,8 +35,8 @@ public class AssetController {
         return ResponseEntity.ok(assets);
     }
 
-    // Redirect /assets/ to /assets/{authenticated_username}
-    @GetMapping("/")
+    // Redirect /assets to /assets/{authenticated_username}
+    @GetMapping()
     public ResponseEntity<Void> getAuthenticatedUserRedirect(@AuthenticationPrincipal User user) {
         return ResponseEntity.status(HttpStatus.FOUND) // 302 Redirect
                 .header(HttpHeaders.LOCATION, "/assets/" + user.getUsername())

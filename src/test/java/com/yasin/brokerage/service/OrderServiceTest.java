@@ -61,13 +61,16 @@ class OrderServiceTest {
 
     @Test
     void testDeleteBuyOrder() {
-        when(assetService.findAssetByCustomerAndName(customer, "TRY")).thenReturn(Optional.of(tryAsset));
+        when(assetService.findAssetByCustomerAndName(customer, "TRY"))
+                .thenReturn(Optional.of(tryAsset));
 
         orderService.deleteOrder(buyOrder);
 
         verify(assetService).updateAsset(any(Asset.class));
-        verify(orderRepository).delete(buyOrder);
+        verify(orderRepository).save(buyOrder);
+        assertThat(buyOrder.getStatus()).isEqualTo(OrderStatus.CANCELLED);
     }
+
 
     @Test
     void testCreateSellOrder() {
@@ -83,13 +86,16 @@ class OrderServiceTest {
 
     @Test
     void testDeleteSellOrder() {
-        when(assetService.findAssetByCustomerAndName(customer, "AAPL")).thenReturn(Optional.of(stockAsset));
+        when(assetService.findAssetByCustomerAndName(customer, "AAPL"))
+                .thenReturn(Optional.of(stockAsset));
 
         orderService.deleteOrder(sellOrder);
 
         verify(assetService).updateAsset(any(Asset.class));
-        verify(orderRepository).delete(sellOrder);
+        verify(orderRepository).save(sellOrder);
+        assertThat(sellOrder.getStatus()).isEqualTo(OrderStatus.CANCELLED);
     }
+
 
     @Test
     void testGetOrdersByCustomer() {

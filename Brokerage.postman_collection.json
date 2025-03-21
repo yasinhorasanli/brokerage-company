@@ -1,0 +1,788 @@
+{
+	"info": {
+		"_postman_id": "2a04bd64-f2f0-452c-bfb5-89ee21bf628f",
+		"name": "Brokerage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43219215"
+	},
+	"item": [
+		{
+			"name": "ALICE - Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/login?username=alice&password=pass123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "alice"
+						},
+						{
+							"key": "password",
+							"value": "pass123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALICE - Customer Info JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbGljZSIsImlhdCI6MTc0MjU2NTI2MiwiZXhwIjoxNzQyNTY4ODYyfQ.CA8YQCMVBg9ncAbSblBBNVeE5JgFnP3kCMRBBvgcJepNtt1Fwncoqrf33ysXdN1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALICE - List Assets JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbGljZSIsImlhdCI6MTc0MjU2NTI2MiwiZXhwIjoxNzQyNTY4ODYyfQ.CA8YQCMVBg9ncAbSblBBNVeE5JgFnP3kCMRBBvgcJepNtt1Fwncoqrf33ysXdN1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/assets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALICE - Buy TSLA Stocks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbGljZSIsImlhdCI6MTc0MjU2NTI2MiwiZXhwIjoxNzQyNTY4ODYyfQ.CA8YQCMVBg9ncAbSblBBNVeE5JgFnP3kCMRBBvgcJepNtt1Fwncoqrf33ysXdN1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/create?username=alice&assetName=TSLA&orderSide=BUY&size=10&price=120",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "alice"
+						},
+						{
+							"key": "assetName",
+							"value": "TSLA"
+						},
+						{
+							"key": "orderSide",
+							"value": "BUY"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "price",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ALICE - List Orders JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhbGljZSIsImlhdCI6MTc0MjU2NTI2MiwiZXhwIjoxNzQyNTY4ODYyfQ.CA8YQCMVBg9ncAbSblBBNVeE5JgFnP3kCMRBBvgcJepNtt1Fwncoqrf33ysXdN1g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login?username=yasin&password=1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - Customer Info JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ5YXNpbiIsImlhdCI6MTc0MjU2NTMxMCwiZXhwIjoxNzQyNTY4OTEwfQ.7K601TyHZ_HxWNjAsrMjZpSHKtMHLpCuxj9HrRPTmweUWXVtf1mDsonZy4WYV85a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - Buy TSLA Stocks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ5YXNpbiIsImlhdCI6MTc0MjU2NTMxMCwiZXhwIjoxNzQyNTY4OTEwfQ.7K601TyHZ_HxWNjAsrMjZpSHKtMHLpCuxj9HrRPTmweUWXVtf1mDsonZy4WYV85a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/create?username=yasin&assetName=TSLA&orderSide=BUY&size=10&price=120",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin"
+						},
+						{
+							"key": "assetName",
+							"value": "TSLA"
+						},
+						{
+							"key": "orderSide",
+							"value": "BUY"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "price",
+							"value": "120"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - Sell NVDA Stocks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ5YXNpbiIsImlhdCI6MTc0MjU2NTMxMCwiZXhwIjoxNzQyNTY4OTEwfQ.7K601TyHZ_HxWNjAsrMjZpSHKtMHLpCuxj9HrRPTmweUWXVtf1mDsonZy4WYV85a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/create?username=yasin&assetName=NVDA&orderSide=SELL&size=5&price=160",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin"
+						},
+						{
+							"key": "assetName",
+							"value": "NVDA"
+						},
+						{
+							"key": "orderSide",
+							"value": "SELL"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "price",
+							"value": "160"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - Buy AAPL Stocks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ5YXNpbiIsImlhdCI6MTc0MjU2NTMxMCwiZXhwIjoxNzQyNTY4OTEwfQ.7K601TyHZ_HxWNjAsrMjZpSHKtMHLpCuxj9HrRPTmweUWXVtf1mDsonZy4WYV85a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/create?username=yasin&assetName=AAPL&orderSide=BUY&size=2&price=200&createDate=2025-04-01T15:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"create"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin"
+						},
+						{
+							"key": "assetName",
+							"value": "AAPL"
+						},
+						{
+							"key": "orderSide",
+							"value": "BUY"
+						},
+						{
+							"key": "size",
+							"value": "2"
+						},
+						{
+							"key": "price",
+							"value": "200"
+						},
+						{
+							"key": "createDate",
+							"value": "2025-04-01T15:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YASIN - List Orders JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ5YXNpbiIsImlhdCI6MTc0MjU2NTMxMCwiZXhwIjoxNzQyNTY4OTEwfQ.7K601TyHZ_HxWNjAsrMjZpSHKtMHLpCuxj9HrRPTmweUWXVtf1mDsonZy4WYV85a",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login?username=admin&password=adminpass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin"
+						},
+						{
+							"key": "password",
+							"value": "adminpass"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - List Customers JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - List Customers Filtered JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers?username=alice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "alice"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - List Orders JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - List Orders Filtered JWT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders?startDate=2025-01-01&endDate=2025-04-01&status=PENDING&side=BUY",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": "2025-01-01"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-04-01"
+						},
+						{
+							"key": "status",
+							"value": "PENDING"
+						},
+						{
+							"key": "side",
+							"value": "BUY"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - Match Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/match?orderId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"match"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - Delete Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2NTUwMCwiZXhwIjoxNzQyNTY5MTAwfQ.KKXiSDarIgz1um1hnUeenF9Src29QBWhT1MZvt5EnT1hDN51kJYjqVdH-n-bd_Zl",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/orders/delete?orderId=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - Create Customer --> Ali",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2MDg0MCwiZXhwIjoxNzQyNTY0NDQwfQ.x9uuF4XOCMBxgrcmebh1C7zaYIustBJWXmPzsyMhEzDVIrWcg2oRI7MWuQV_XqqG",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/create?username=ali&password=1234&role=CUSTOMER",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"create"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "ali"
+						},
+						{
+							"key": "password",
+							"value": "1234"
+						},
+						{
+							"key": "role",
+							"value": "CUSTOMER"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADMIN - Add TRY Balance --> Yasin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc0MjU2MDg0MCwiZXhwIjoxNzQyNTY0NDQwfQ.x9uuF4XOCMBxgrcmebh1C7zaYIustBJWXmPzsyMhEzDVIrWcg2oRI7MWuQV_XqqG",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/assets/add?username=yasin&assetName=TRY&size=5000&usableSize=5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"assets",
+						"add"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "yasin"
+						},
+						{
+							"key": "assetName",
+							"value": "TRY"
+						},
+						{
+							"key": "size",
+							"value": "5000"
+						},
+						{
+							"key": "usableSize",
+							"value": "5000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

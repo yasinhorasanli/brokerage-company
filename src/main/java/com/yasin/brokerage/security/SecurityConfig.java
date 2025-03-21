@@ -1,6 +1,5 @@
-package com.yasin.brokerage;
+package com.yasin.brokerage.security;
 
-import com.yasin.brokerage.security.JwtFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

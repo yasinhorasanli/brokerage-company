@@ -32,9 +32,11 @@ public class Customer {
     private String role; // ADMIN or CUSTOMER
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Asset> assets;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<Order> orders;
 
     @Override
